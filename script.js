@@ -1,7 +1,7 @@
 const renderAlert = (state = 'error') => {
   const messages = {
     error: 'Please provide a valid email',
-    success: '<b>Thank you for joining Dhmaer!</b> We\'ve sent a confirmation link to your inbox with exclusive early access offers.'
+    success: '<b>Thank you for joining Dhmaer!</b> We\'ve sent a confirmation to your inbox with exclusive early access offers.'
   };
 
   return `
@@ -14,6 +14,7 @@ const renderAlert = (state = 'error') => {
 
 const init = () => {
   const emailElement = document.querySelector('#email');
+  const professionalElement = document.querySelector('#professional');
   const formElement = document.querySelector('#form');
   const alertElement = document.querySelector('[role="alert"]');
   const validationRegex = new RegExp(
@@ -34,12 +35,22 @@ const init = () => {
       return;
     }
 
-    // Save email to database (would be implemented with backend)
+    // Prepare email data for submission to info@dhamer.co
+    const emailData = {
+      email: emailElement.value.trim(),
+      professional: professionalElement.checked ? 'Yes' : 'No'
+    };
+    
+    console.log('Sending to info@dhamer.co:', emailData);
+    
+    // In a real implementation, you would send this data to a server
+    // For demonstration purposes, we'll just show the success message
+
     formElement.parentElement.removeChild(formElement);
     alertElement.innerHTML = renderAlert('success');
     
     // Track conversion for Dhmaer
-    console.log('New subscriber added to Dhmaer launch list');
+    console.log('New subscriber added to Dhmaer launch list', emailData);
   });
 }
 
