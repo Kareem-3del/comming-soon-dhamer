@@ -82,9 +82,10 @@ header {
 
 .side-image {
   grid-area: side-image;
-  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg');
+  background-image: url('login.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 /**
@@ -282,8 +283,9 @@ footer a:hover {
   }
 
   .side-image {
-    height: 250px;
-    background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-mobile_ntwssb.jpg');
+    height: 350px;
+    background-image: url('login.jpg');
+    background-position: top center;
   }
 
   .main, header {
