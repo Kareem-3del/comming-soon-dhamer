@@ -1,0 +1,309 @@
+/**
+* Reset
+**/
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/**
+* Variables
+**/
+
+:root {
+  --metric-rhythm: 2rem;
+  --metric-interaction-padding: 0.6rem 0.6rem;
+  --pink-primary: #F67985;
+  --pink-light: hsl(353, 89%, 90%);
+  --pink-dark: hsl(353, 89%, 60%);
+  --dark-gray: #333333;
+  --light-gray: #f5f5f5;
+}
+
+/**
+* Base
+**/
+
+body {
+  height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-areas:
+    "header side-image"
+    "main side-image"
+    "main side-image"
+    "footer side-image";
+  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217438/base%20apparel%20coming%20soon/bg-pattern-desktop_ohtovt.svg');
+  background-size: 100% 100%;
+}
+
+/**
+* Utilities
+**/
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.flow {
+  --flow-space: var(--metric-rhythm);
+}
+
+.flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+/**
+* Header
+**/
+
+header {
+  grid-area: header;
+  height: 100px;
+  padding-top: 3rem;
+  padding-left: 10rem;
+}
+
+/**
+* Side
+**/
+
+.side-image {
+  grid-area: side-image;
+  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/**
+* Main
+**/
+
+.main {
+  grid-area: main;
+  max-width: 800px;
+  padding-left: 10rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  word-spacing: 100vw;
+  line-height: 1.1em;
+}
+
+h2 .heading--pink {
+  font-weight: 300;
+  color: var(--pink-primary);
+  letter-spacing: 0.33em;
+}
+
+.main p {
+  color: var(--dark-gray);
+  line-height: 1.5em;
+  width: 49ch;
+}
+
+.form {
+    --flow-space: 3.5rem;
+}
+
+.form__control {
+  display: flex;
+  position: relative;
+  width: 48ch;
+  border: 1px solid var(--pink-primary);
+  border-radius: 999px;
+  transition: 0.2s;
+  --flow-space: 0.5rem;
+}
+
+.form__control:focus-within {
+  border-width: 2px;
+}
+
+.form__control label {
+  position: absolute;
+  text-transform: capitalize;
+  height: 100%;
+  color: var(--dark-gray);
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  width: 100%;
+  transition: 0.2s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.form__control input {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  padding: 20px 0 20px 2rem;
+  flex: auto;
+}
+
+input:focus + label, input:not([value=""]) + label {
+    align-items: flex-start;
+    opacity: 0.75;
+    transform: translateY(-1.5rem);
+}
+
+
+.button {
+  z-index: 1;
+  background-image: linear-gradient(135deg, var(--pink-light), var(--pink-primary));
+  min-width: 7.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+}
+
+.button:hover, .button:focus {
+  filter: brightness(1.05);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  outline: 0;
+  background-image: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+}
+
+.button svg {
+  transform: translateY(1px); /* Optical adjustment */
+}
+
+/**
+ * ALERT COMPONENT
+ */
+
+.form__alert {
+    --flow-space: 0;
+}
+
+.alert {
+  --alert-text: var(--dark-gray);
+
+  display: flex;
+  align-items: flex-start;
+  color: var(--alert-text);
+  animation: slide-up 250ms ease;
+}
+
+.alert[data-state='success'] {
+  --alert-text: green;
+}
+
+.alert__icon {
+  font-size: 1.6em;
+  flex-shrink: 0;
+}
+
+.alert__content {
+  padding-left: 2rem;
+}
+
+.alert__content b {
+  display: block;
+}
+
+/**
+ * ANIMATIONS
+ */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+* Footer
+**/
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+}
+
+footer a {
+  color: var(--pink-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: var(--pink-dark);
+  text-decoration: underline;
+}
+
+/**
+* Media Query
+**/
+
+@media screen and (-ms-high-contrast: active) {
+  input[type],
+  textarea {
+    margin: 0; /* Reset the margin property so the outline isn't affected */
+  }
+}
+
+@media(max-width: 1000px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "side-image"
+      "main"
+      "footer";
+  }
+
+  .side-image {
+    height: 250px;
+    background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-mobile_ntwssb.jpg');
+  }
+
+  .main, header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main h2, .main p {
+    text-align: center;
+    width: 100%;
+  }
+
+  .main h2 {
+    font-size: 3rem;
+  }
+
+  .main p, .form__control {
+    width: 100%;
+  }
+}

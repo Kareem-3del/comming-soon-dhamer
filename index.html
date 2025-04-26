@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhmaer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header role="banner">
+  <h1 class="visually-hidden">Dhmaer E-Commerce</h1>
+  <a href="/" title="return to the homepage" id="logo">
+    <img src="logo.svg" alt="Dhmaer Logo">
+  </a>
+</header>
+<section class="side-image"></section>
+<main class="[ main ] [ flow ]">
+  <h2>
+   <span class="heading--pink">
+      Dhmaer
+   </span>
+   coming soon
+  </h2>
+  <p>
+    Welcome to the future of online shopping! Our premium e-commerce platform is almost ready.
+    Add your email below to stay up-to-date with announcements and our exclusive launch deals.
+  </p>
+  <form action="/" class="[ form ] [ flow ]" method="POST" id="form">
+    <div class="form__control">
+      <input type="email"
+             name="email"
+             id="email"
+             value=""
+             autocapitalize="none"
+             autocomplete="false"
+             autocorrect="off"
+             required
+             pattern="[^@]+@[^\.]+\..+" />
+      <label for="email">Email Address</label>
+      <button class="button">
+        <span class="visually-hidden">Submit email</span>
+        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="12" height="20"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 1l8.836 8.836L1 18.671" /></svg>
+      </button>
+      <div class="alert_icon"></div>
+    </div>
+  </form>
+  <div aria-atomic="true" role="alert" class="form__alert"></div>
+</main>
+<footer>
+  <p>Developed by <a href="https://leggeratechs.com/" target="_blank">Leggera</a></p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
